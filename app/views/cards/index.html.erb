@@ -1,0 +1,22 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+
+<div id="cards" class="transitions-enabled">
+  <% @cards.each do |card| %>
+    <div class="box panel panel-default flip">
+         <figure>
+          <%= link_to image_tag(card.image.url(:medium)), card %>
+        </figure>
+        <div class="panel-body">
+          <div class="panel-heading center">
+              <p><strong><%= card.title %></strong></p>
+            </div>
+              <p><%= card.text %></p>
+         </div>  
+    </div>
+  <% end %>
+</div>
+
+<div class="center">
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
