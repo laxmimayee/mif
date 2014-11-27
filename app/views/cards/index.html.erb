@@ -6,12 +6,16 @@
     <div class="box panel panel-default flip">
          <figure>
           <%= link_to image_tag(card.image.url(:medium)), card %>
+          <figcaption>
+            <p><strong><%= link_to card.title, :action => 'show', :id => card.id %></strong></p>
+            <p><%= card.text %></p>
+          </figcaption>
         </figure>
         <div class="panel-body">
           <div class="panel-heading center">
               <p><strong><%= card.title %></strong></p>
             </div>
-              <p><%= card.text %></p>
+              
          </div>  
     </div>
   <% end %>
